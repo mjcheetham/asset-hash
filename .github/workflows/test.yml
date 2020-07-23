@@ -23,9 +23,9 @@ jobs:
         id: hash
         with:
           repo: microsoft/Git-Credential-Manager-Core
-          tag: v2.0.194-beta
+          tag: v2.0.157-beta
           asset: /gcmcore-osx-(.*)\.pkg/
           hash: sha256
           token: ${{ secrets.GITHUB_TOKEN }}
       - run: |
-          test "${{ steps.hash.outputs.result }}" == "95232742134e81362d0f1a6d24026a1e7552c2c6b7bf62b7d54895f5bc9b0993" || exit 1
+          test "${{ steps.hash.outputs.result }}" == "c372b40ef343250fcf677816a2f4117bb73a336df0a163cb2cef4257124f0ca9" || exit 1
