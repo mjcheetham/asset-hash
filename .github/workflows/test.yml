@@ -20,5 +20,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: ./
+        id: hash
         with:
-          milliseconds: 1000
+          repo: microsoft/Git-Credential-Manager-Core
+          tag: v2.0.194-beta
+          asset: /gcmcore-osx-(.*)\.pkg/
+          hash: sha256
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - run: |
+          test "${{ steps.hash.outputs.result }}" == "95232742134e81362d0f1a6d24026a1e7552c2c6b7bf62b7d54895f5bc9b0993" || exit 1

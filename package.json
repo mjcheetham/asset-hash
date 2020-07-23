@@ -1,8 +1,8 @@
 {
-  "name": "typescript-action",
-  "version": "0.0.0",
+  "name": "asset-hash",
+  "version": "1.0.0",
   "private": true,
-  "description": "TypeScript template action",
+  "description": "Compute a hash/checksum of a GitHub release asset.",
   "main": "lib/main.js",
   "scripts": {
     "build": "tsc",
@@ -15,17 +15,22 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/actions/typescript-action.git"
+    "url": "git+https://github.com/mjcheetham/asset-hash.git"
   },
   "keywords": [
     "actions",
     "node",
-    "setup"
+    "hash",
+    "checksum",
+    "sha"
   ],
-  "author": "",
+  "author": "mjcheetham",
   "license": "MIT",
   "dependencies": {
-    "@actions/core": "^1.2.4"
+    "@actions/core": "^1.2.0",
+    "@actions/github": "^2.1.1",
+    "@types/request": "^2.48.5",
+    "request": "^2.88.2"
   },
   "devDependencies": {
     "@types/jest": "^26.0.5",

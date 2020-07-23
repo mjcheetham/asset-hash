@@ -1,11 +1,37 @@
-name: 'Your name here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: asset-hash
+description: Compute a hash/checksum of a GitHub release asset.
+author: mjcheetham
 inputs:
-  milliseconds: # change this
+  repo:
+    required: false
+    description: |
+      Repository from which release assets are located. Defaults to this repository
+      (GITHUB_REPOSITORY) if not specified.
+  tag:
+    required: false
+    description: |
+      Tag of the release from which assets are located. Defaults to the ref that
+      triggered the workflow (GITHUB_REF) if not specified.
+  asset:
     required: true
-    description: 'input description here'
-    default: 'default value if applicable'
+    description: |
+      Name of the release asset. If the name starts and ends with '/' then
+      the value is interpretted as a regular expression and the first asset
+      matching the expression is selected.
+  hash:
+    required: true
+    description: |
+      The type of hash/checksum to compute.
+      Available values are: 'sha1', 'sha256', 'md5'.
+  token:
+    required: false
+    description: |
+      Personal access token used to access the target repository. Only required
+      if the repository is private.
 runs:
   using: 'node12'
   main: 'dist/index.js'
+branding:
+  icon: package
+  color: orange
+
