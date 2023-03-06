@@ -29,7 +29,7 @@ inputs:
       Personal access token used to access the target repository. Only required
       if the repository is private.
 runs:
-  using: 'node12'
+  using: 'node16'
   main: 'dist/index.js'
 branding:
   icon: hash
